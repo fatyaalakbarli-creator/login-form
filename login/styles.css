@@ -418,7 +418,7 @@ a {
 .open-recartcha { 
   background-size: cover;
   background-position: center;
-  background-image: url('./assets/recaptcha-open.png');
+  background-image: url('../assets/recaptcha-open.png');
 }
 
 .recaptcha-collapsed {

@@ -37,7 +37,7 @@ const PAGE_TEXT = {
       password: 'Пароль',
       show: 'Показать',
       hide: 'Скрыть',
-      forgot: 'Забыл пароль?',
+      forgot: 'Забыли пароль?',
       signIn: 'Войти',
       continue: 'или продолжить с',
       magicLink: 'Отправить одноразовую ссылку'
@@ -94,7 +94,7 @@ const PAGE_TEXT = {
   }
 
   function getAssetPath(fileName) {
-    return page === 'magic' ? `../../assets/${fileName}` : `assets/${fileName}`;
+    return page === 'magic' ? `../../assets/${fileName}` : `../assets/${fileName}`;
   }
 
   function applyLanguage(lang) {
